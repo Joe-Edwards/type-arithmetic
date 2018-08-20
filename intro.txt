@@ -3,7 +3,7 @@
 # Arithmetic in the Scala type system #
 #######################################
 
-Computation with types
+Computation with types, using Peano arithmetic as an example.
 
 # Peano Arithmetic
 

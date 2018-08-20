@@ -1,0 +1,26 @@
+
+#######################################
+# Arithmetic in the Scala type system #
+#######################################
+
+Computation with types
+
+# Peano Arithmetic
+
+Axioms:
+1. Zero is a natural number
+2. Given a natural number a, the successor of a is a number
+3. Zero is not the successor of any number
+4. If the successors of two numbers are equal, the numbers are equal
+5. (Induction)
+
+Notation:
+0    = Zero
+S(a) = Successor of a
+1    = S(0)
+2    = S(1)
+etc.
+
+Addition:
+0    + a = a
+S(n) + a = n + S(a)

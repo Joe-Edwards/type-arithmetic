@@ -29,7 +29,7 @@ object NaturalNumbers {
     type Mult[A <: Nat] = _0    // 0 * A = 0
     type Div[A <: Nat] = _0     // 0 / A = 0
 
-    type Gcd[A <: Nat] = A      // gcd(0, A) = 0
+    type Gcd[A <: Nat] = A      // gcd(0, A) = A
 
     type Pre = Nothing
     type IfZero[T <: Nat, F <: Nat] = T
@@ -50,6 +50,16 @@ object NaturalNumbers {
     type IfZero[T <: Nat, F <: Nat] = F
     type IfLt[A <: Nat, T <: Nat, F <: Nat] = A#IfZero[F, N#IfLt[A#Pre, T, F]]
   }
+
+  // Basic Operations
+  type +[A <: Nat, B <: Nat] = A#Add[B]
+  type -[A <: Nat, B <: Nat] = B#SubFrom[A]
+  type *[A <: Nat, B <: Nat] = A#Mult[B]
+  type /[A <: Nat, B <: Nat] = A#Div[B]
+  type %[A <: Nat, B <: Nat] = A - (B * (A / B))
+
+  // Greatest Common Divisor
+  type gcd[A <: Nat, B <: Nat] = A#Gcd[B]
 
   // Type aliases for low numbers
   type _1 = S[_0]
@@ -77,14 +87,4 @@ object NaturalNumbers {
   type _23 = S[_22]
   type _24 = S[_23]
   type _25 = S[_24]
-
-  // Type aliases for operations
-  type +[A <: Nat, B <: Nat] = A#Add[B]
-  type -[A <: Nat, B <: Nat] = B#SubFrom[A]
-  type *[A <: Nat, B <: Nat] = A#Mult[B]
-  type /[A <: Nat, B <: Nat] = A#Div[B]
-  type %[A <: Nat, B <: Nat] = A - (B * (A / B))
-
-  // Greatest Common Divisor
-  type gcd[A <: Nat, B <: Nat] = A#Gcd[B]
 }

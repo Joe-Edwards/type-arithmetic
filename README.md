@@ -10,6 +10,13 @@ Originally for a lightning talk 21/8/18
 4. If the successors of two numbers are equal, the numbers are equal
 5. (Induction)
 
+## Using the project
+
+Install SBT and start a console with `sbt console`.
+
+`import com.softwire.NaturalNumbers._` will put everything into scope.
+You will also need to `import com.softwire.ToInt._` to use the `toInt` helper.
+
 ## Type Representation
 
 We can represent these as types - see `NaturalNumbers.scala`
@@ -30,3 +37,7 @@ Otherwise we must produce the value at runtime, which we can do using the `toInt
 ## Limitations
 
 As this makes heavy use of recursion it is very easy to break the compiler as it gets more difficult (usually with a `StackOverflowError`).
+
+## Runtime Version
+
+In RuntimeNat you can find a line-by-line translation into boring 'runtime' code.

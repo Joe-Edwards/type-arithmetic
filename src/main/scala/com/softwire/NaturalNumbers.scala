@@ -38,7 +38,7 @@ object NaturalNumbers {
 
   // Successor type
   class S[N <: Nat] extends Nat {
-    type Add[A <: Nat] = N#Add[S[A]]                                   // S(N) + A = N + S(A)
+    type Add[A <: Nat] = S[N#Add[A]]                                   // S(N) + A = S(N + A)
     type SubFrom[A <: Nat] = N#SubFrom[A#Pre]                          // A - S(N) = A#Pre - N
     type Mult[A <: Nat] = A#Add[A#Mult[N]]                             // S(N) * A = A + (A * N)
     type Div[A <: Nat] = S[N]#IfLt[A, _0, S[A#SubFrom[S[N]]#Div[A]]]   // S(N) / A = S((S(N) - A )/ A) if S(N) >= A

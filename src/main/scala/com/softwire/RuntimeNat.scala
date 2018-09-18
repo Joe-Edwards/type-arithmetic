@@ -38,7 +38,7 @@ object RuntimeNat {
 
   // Successor class
   case class S(n: Nat) extends Nat {
-    def add(a: Nat): Nat = n.add(S(a))
+    def add(a: Nat): Nat = S(n.add(a))
     def subFrom(a: Nat): Nat = n.subFrom(a.pre)
     def mult(a: Nat): Nat = a.add(a.mult(n))
     def div(a: Nat): Nat = S(n).ifLt(a, _0, S(a.subFrom(S(n)).div(a)))

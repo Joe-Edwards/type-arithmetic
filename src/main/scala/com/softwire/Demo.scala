@@ -13,7 +13,7 @@ object Demo {
   }
 
   class S[N <: Nat] extends Nat {
-    type Add[A <: Nat] = N#Add[S[A]]
+    type Add[A <: Nat] = S[N#Add[A]]
   }
 
   // Type aliases for low numbers

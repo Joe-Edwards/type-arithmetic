@@ -5,6 +5,8 @@ However, given a sufficiently powerful type system we can do _type_ programming 
 using the type system to perform a computation at compile time!
 
 This blog post explores a simple implementation of Peano-style arithmetic using Scala types.
+We will end up with the ability to perform simple arithmetic operations, as well as computing the greatest common divisor of two numbers -
+a genuine (albeit simple) algorithm!
 
 ## Peano Arithmetic
 
@@ -171,7 +173,7 @@ class S(n: Nat) extends Nat {
 }
 ``` 
 
-Now we have a (fairly clunky) way of expressing additions using types. For example, the type of `_3` + `_4`:
+Now we have a (fairly clunky) way of expressing additions using types. For example, the type of `_3` + `_5`:
 
 ```scala
 _3#Add[_5]
@@ -289,11 +291,11 @@ gives us a compilation error:
        implicitly[((_3 * _5) + _1) / _2 =:= _7]
                  ^
 ```
-(Note that all operators are left associative, so you need brackets for compound expressions to be evaluated properly)
+(Note that all operators are left associative, so you may need brackets for compound expressions to be evaluated properly)
 
 #### Computation
 
-As an example of a 'real' computation, we have also implemented the Euclidean algorithm for computing the Greatest Common Divisor of two numbers
+As an example of a 'real' computation, we have also implemented the Euclidean algorithm for calculating the Greatest Common Divisor of two numbers
 
 ```scala
 implicitly[gcd[_12, _18] =:= _6]
